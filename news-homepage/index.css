@@ -223,4 +223,23 @@ body {
   .main-menu-mobile {
     display: block;
   }
+
+  .section-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-banner {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .featured-title {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .featured-content {
+    grid-column: 1;
+    grid-row: 3;
+  }
 }
