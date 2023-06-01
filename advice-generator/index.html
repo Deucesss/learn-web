@@ -4,25 +4,126 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
+  <link rel="stylesheet" href="../news-homepage/reset.css">
+
   <title>Frontend Mentor | Advice generator app</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    :root {
+      --color-light-cyan: hsl(193, 38%, 86%);
+      --color-neon-green: hsl(150, 100%, 66%);
+      --color-neon-green-shadow: hsla(150, 100%, 66%, 0.5);
+      --color-grayish-blue: hsl(217, 19%, 38%);
+      --color-dark-grayish-blue: hsl(217, 19%, 24%);
+      --color-dark-blue: hsl(218, 23%, 16%);
+      --font-body: "manrope"
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-dark-blue);
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      max-width: 35rem;
+      border-radius: 0.7rem;
+      margin: 0 auto;
+      padding: 2rem;
+      padding-bottom: 4rem;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--color-dark-grayish-blue);
+      gap: 2rem;
+    }
+
+    .advice-title {
+      color: var(--color-neon-green);
+      letter-spacing: 0.2rem;
+      font-size: 1rem;
+    }
+
+    .advice {
+      min-height: 2rem;
+      color: var(--color-light-cyan);
+      font-size: 28px;
+      text-align: center;
+    }
+
+    .btn-generate {
+      display: block;
+      margin: 0 auto !important;
+      margin-top: -1.5rem !important;
+      background-color: var(--color-neon-green);
+      border-radius: 50%;
+      padding: 1rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-generate:hover {
+      box-shadow: 0px 0px 2rem 1rem var(--color-neon-green-shadow);
+    }
   </style>
+
 </head>
 <body>
+  <div class="wrapper">
 
-  Advice #<!-- Advice ID goes here -->
-
-  "<!-- Advice text goes here -->"
+    <section class="container">
+      <h3 class="advice-title">Advice #<span class="advice-number"></span></h3>
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+      <p class="advice">
+      </p>
+  
+      <img src="images/pattern-divider-desktop.svg" />
+    
+    </section>
+    <button class="btn-generate">
+      <img src="images/icon-dice.svg" />
+    </button>
   </div>
+
+
+  <script defer>
+    const api = "https://api.adviceslip.com/advice";
+
+    const btnGenerate = document.querySelector(".btn-generate");
+    const advice = document.querySelector(".advice");
+    const adviceNumber = document.querySelector(".advice-number");
+    fetchAdvice();
+    
+    btnGenerate.addEventListener("click", fetchAdvice);
+
+    function fetchAdvice() {
+      fetch(api)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Http Error: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((json) => {
+        console.log(json);
+        advice.innerHTML = `"${json.slip.advice}"`;
+        adviceNumber.innerHTML = json.slip.id;
+      })
+      .catch((error) => {
+      
+      });
+    }
+  </script>
 </body>
 </html>
