@@ -1,52 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+    <title>
+      Frontend Mentor | Newsletter sign-up form with success message
+    </title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <link rel="stylesheet" href="../news-homepage/reset.css" />
+    <link rel="stylesheet" href="./dist/output.css" />
+  </head>
+  <body class="bg-charcoalGray h-screen flex flex-col justify-center">
+    <!-- Sign-up form start -->
+    <main
+      class="main flex flex-row max-w-[920px] mx-auto p-6 bg-white rounded-3xl gap-4"
+    >
+      <section class="flex flex-col justify-center px-10 gap-8">
+        <h1 class="font-bold text-6xl text-slateGray">Stay updated!</h1>
+        <p class="text-charcoalGray text-opacity-90">
+          Join 60,000+ product managers receiving monthly updates on:
+        </p>
+        <ul>
+          <li class="flex gap-4 py-2 text-charcoalGray">
+            <img src="./assets/images/icon-list.svg" />
+            Product discovery and building what matters
+          </li>
+          <li class="flex gap-4 py-2 text-charcoalGray">
+            <img src="./assets/images/icon-list.svg" />
+            Measuring to ensure updates are a success
+          </li>
+          <li class="flex gap-4 py-2 text-charcoalGray">
+            <img src="./assets/images/icon-list.svg" />
+            And much more!
+          </li>
+        </ul>
 
-  <!-- Sign-up form start -->
+        <form>
+          <label for="email" class="block text-xs font-bold pb-2"
+            >Email Address</label
+          >
+          <input
+            class="block p-4 border-grey border-[1px] rounded-md w-full focus:outline-slateGray"
+            name="email"
+            type="email"
+            placeholder="email@company.com"
+          />
+        </form>
 
-  Stay updated!
+        <button
+          class="bg-slateGray text-white rounded-lg py-4 hover:bg-gradient-to-r from-tomato/20 to-tomato hover:shadow-lg hover:shadow-tomato/50"
+        >
+          Subscribe to monthly newsletter
+        </button>
+      </section>
+      <img src="assets/images/illustration-sign-up-desktop.svg" />
+    </main>
+    <!-- Sign-up form end -->
 
-  Join 60,000+ product managers receiving monthly updates on:
+    <!-- Success message start -->
 
-  Product discovery and building what matters
-  Measuring to ensure updates are a success
-  And much more!
+    <!-- Thanks for subscribing! A confirmation email has been sent to
+    ash@loremcompany.com. Please open it and click the button inside to confirm
+    your subscription. Dismiss message -->
 
-  Email address
-  email@company.com
-
-  Subscribe to monthly newsletter
-
-  <!-- Sign-up form end -->
-
-  <!-- Success message start -->
-
-  Thanks for subscribing!
-
-  A confirmation email has been sent to ash@loremcompany.com. 
-  Please open it and click the button inside to confirm your subscription.
-
-  Dismiss message
-
-  <!-- Success message end -->
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <!-- Success message end -->
+  </body>
 </html>
