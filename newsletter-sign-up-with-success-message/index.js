@@ -33,7 +33,7 @@ btnSubscribe.addEventListener("click", (ev) => {
 function hasError(field) {
   let validity = field.validity;
   if (validity.valid) return;
-  return "Error";
+  return "Please enter a valid email";
 }
 
 function showError(field, error) {
