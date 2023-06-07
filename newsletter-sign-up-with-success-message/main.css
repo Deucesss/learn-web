@@ -23,3 +23,15 @@
         --color-white: 0 0% 100%;
     }
 }
+.error {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-style: italic;
+}
+
+/* .success-body {
+    flex: 1 !important;
+} */

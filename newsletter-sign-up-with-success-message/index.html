@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
     <link
@@ -20,14 +20,17 @@
     <title>
       Frontend Mentor | Newsletter sign-up form with success message
     </title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 
     <link rel="stylesheet" href="../news-homepage/reset.css" />
     <link rel="stylesheet" href="./dist/output.css" />
+
+    <script src="index.js" defer></script>
   </head>
   <body class="bg-charcoalGray h-screen flex flex-col justify-center">
     <!-- Sign-up form start -->
     <main
-      class="main flex flex-row max-w-[920px] mx-auto p-6 bg-white rounded-3xl gap-4"
+      class="main flex flex-col-reverse md:flex-row md:max-w-[920px] md:mx-auto md:p-6 bg-white rounded-3xl md:gap-4 gap-12 px-0 pb-12"
     >
       <section class="flex flex-col justify-center px-10 gap-8">
         <h1 class="font-bold text-6xl text-slateGray">Stay updated!</h1>
@@ -49,33 +52,50 @@
           </li>
         </ul>
 
-        <form>
-          <label for="email" class="block text-xs font-bold pb-2"
-            >Email Address</label
-          >
+        <form class="validate">
+          <div class="input-control mb-8">
+            <label for="email" class="block text-xs font-bold pb-2"
+              >Email Address</label
+            >
+            <input
+              class="block p-4 border-grey border-[1px] rounded-md w-full focus:outline-none"
+              name="email"
+              type="email"
+              id="email"
+              placeholder="email@company.com"
+            />
+          </div>
           <input
-            class="block p-4 border-grey border-[1px] rounded-md w-full focus:outline-slateGray"
-            name="email"
-            type="email"
-            placeholder="email@company.com"
+            class="block w-full cursor-pointer btn-subscribe bg-slateGray text-white rounded-lg py-4 hover:bg-gradient-to-r from-tomato/20 to-tomato hover:shadow-lg hover:shadow-tomato/50"
+            type="submit"
+            value="Subscribe to monthly newsletter"
           />
         </form>
-
-        <button
-          class="bg-slateGray text-white rounded-lg py-4 hover:bg-gradient-to-r from-tomato/20 to-tomato hover:shadow-lg hover:shadow-tomato/50"
-        >
-          Subscribe to monthly newsletter
-        </button>
       </section>
       <img src="assets/images/illustration-sign-up-desktop.svg" />
     </main>
     <!-- Sign-up form end -->
 
     <!-- Success message start -->
+    <section
+      class="success-container hidden bg-white p-8 h-screen flex-col sm:max-w-sm sm:m-auto sm:h-auto sm:rounded-3xl sm:gap-8"
+    >
+      <div class="success-body flex flex-1 flex-grow flex-col gap-8">
+        <img src="./assets/images/icon-success.svg" width="64" height="64" />
+        <h1 class="success-title text-4xl font-bold">
+          Thanks for subscribing!
+        </h1>
+        <p class="success-message">
+          A confirmation email has been sent to
+          <span class="user-email font-bold"></span>. Please open it and click
+          the button inside to confirm your subscription.
+        </p>
+      </div>
 
-    <!-- Thanks for subscribing! A confirmation email has been sent to
-    ash@loremcompany.com. Please open it and click the button inside to confirm
-    your subscription. Dismiss message -->
+      <button class="w-full bg-slateGray rounded-md text-white py-4">
+        Dismiss message
+      </button>
+    </section>
 
     <!-- Success message end -->
   </body>
